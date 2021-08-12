@@ -1,0 +1,76 @@
+<div *ngIf="data.type==='edit'">
+
+    <form [formGroup]="branchGroup" class="form-container">
+        <mat-card-header>
+            <mat-card-title>Branch Information</mat-card-title>
+        </mat-card-header>
+        <hr>
+        <mat-card-content>
+            <div class="row">
+                <mat-form-field>
+                    <input formControlName="name" matInput placeholder="Name" value="{{branch.name}}">
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="editOneBranch(branch.id, branch)" [mat-dialog-close]="data.reload">Edit</button>
+        </mat-card-actions>
+    </form>
+            
+</div>
+
+<div *ngIf="data.type==='view'">
+    <form [formGroup]="branchGroup" class="form-container">
+        <mat-card-header>
+            <mat-card-title>Branch Information</mat-card-title>
+        </mat-card-header>
+        <hr>
+        <mat-card-content>
+            <div class="row">
+                <mat-form-field>
+                    <input formControlName="name" matInput placeholder="Name" value="{{branch.name}}">
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+    </form>
+    
+</div>
+
+<div *ngIf="data.type==='create'">
+    <form [formGroup]="branchGroup" class="form-container">
+        <mat-card-header>
+            <mat-card-title>Branch Information</mat-card-title>
+        </mat-card-header>
+        <hr>
+        <mat-card-content>
+            <div class="row">
+                <mat-form-field>
+                    <input formControlName="name" matInput placeholder="Name">
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="createBranch()" [mat-dialog-close]="data.reload">Create</button>
+        </mat-card-actions>
+    </form>
+</div>
+
+<div *ngIf="data.type==='delete'">
+    <mat-card-header>
+        <mat-card-title>Branch Information</mat-card-title>
+    </mat-card-header>
+    <hr>
+    <mat-card-content>
+        <p>Are you sure for delete this item?</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <div class="row">
+            <div class="col-md-6">
+                <button mat-raised-button color="primary" (click)="deleteBranch(data.id)" [mat-dialog-close]="data.reload">Delete</button>
+            </div>
+            <div class="col-md-6">
+                <button mat-raised-button color="" [mat-dialog-close]="data.reload">No</button>
+            </div>
+        </div>
+    </mat-card-actions>
+</div>

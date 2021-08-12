@@ -1,0 +1,98 @@
+
+<div *ngIf="data.type==='edit'">
+
+    <form [formGroup]="productGroup" class="form-container">
+        <mat-card-header>
+            <mat-card-title>Product Information</mat-card-title>
+        </mat-card-header>
+        <hr>
+        <mat-card-content>
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field>
+                        <input formControlName="name" matInput placeholder="Name" value="{{product.name}}">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field>
+                        <input formControlName="price" matInput placeholder="Price" value="{{product.price}}">
+                    </mat-form-field>
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="editOneProduct(product.id, product)" [mat-dialog-close]="data.reload">Edit</button>
+        </mat-card-actions>
+    </form>
+            
+</div>
+
+<div *ngIf="data.type==='view'">
+    <form [formGroup]="productGroup" class="form-container">
+        <mat-card-header>
+            <mat-card-title>Product Information</mat-card-title>
+        </mat-card-header>
+        <hr>
+        <mat-card-content>
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field>
+                        <input formControlName="name" matInput placeholder="Name" value="{{product.name}}">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field>
+                        <input formControlName="price" matInput placeholder="Price" value="{{product.price}}">
+                    </mat-form-field>
+                </div>
+            </div>
+        </mat-card-content>
+    </form>
+    
+</div>
+
+<div *ngIf="data.type==='create'">
+    <form [formGroup]="productGroup" class="form-container">
+        <mat-card-header>
+            <mat-card-title>Product Information</mat-card-title>
+        </mat-card-header>
+        <hr>
+        <mat-card-content>
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field>
+                        <input formControlName="name" matInput placeholder="Name">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field>
+                        <input formControlName="price" matInput placeholder="Price">
+                    </mat-form-field>
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="createProduct()" [mat-dialog-close]="data.reload">Create</button>
+        </mat-card-actions>
+    </form>
+</div>
+
+<div *ngIf="data.type==='delete'">
+    <mat-card-header>
+        <mat-card-title>Product Information</mat-card-title>
+    </mat-card-header>
+    <hr>
+    <mat-card-content>
+        <p>Are you sure for delete this item?</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <div class="row">
+            <div class="col-md-6">
+                <button mat-raised-button color="primary" (click)="deleteProduct(data.id)" [mat-dialog-close]="data.reload">Delete</button>
+            </div>
+            <div class="col-md-6">
+                <button mat-raised-button color="" [mat-dialog-close]="data.reload">No</button>
+            </div>
+        </div>
+    </mat-card-actions>
+</div>

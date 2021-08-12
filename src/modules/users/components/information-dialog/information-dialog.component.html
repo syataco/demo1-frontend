@@ -1,0 +1,110 @@
+
+<div *ngIf="data.type==='edit'">
+
+    <form [formGroup]="userGroup" class="form-container">
+        <mat-card-header>
+            <mat-card-title>User Information</mat-card-title>
+        </mat-card-header>
+        <hr>
+        <mat-card-content>
+            <div class="row">
+                <mat-form-field>
+                    <input formControlName="names" matInput placeholder="Names" value="{{user.names}}">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field>
+                        <input formControlName="username" matInput placeholder="User name" value="{{user.username}}">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field>
+                        <input formControlName="password" matInput placeholder="Password" value="{{user.password}}">
+                    </mat-form-field>
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="editOneUser(user.id, user)">Edit</button>
+        </mat-card-actions>
+    </form>
+            
+</div>
+
+<div *ngIf="data.type==='view'">
+    <form [formGroup]="userGroup" class="form-container">
+        <mat-card-header>
+            <mat-card-title>User Information</mat-card-title>
+        </mat-card-header>
+        <hr>
+        <mat-card-content>
+            <div class="row">
+                <mat-form-field>
+                    <input formControlName="names" matInput placeholder="Names" value="{{user.names}}">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field>
+                        <input formControlName="username" matInput placeholder="User name" value="{{user.username}}">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field>
+                        <input formControlName="password" matInput placeholder="Password" value="{{user.password}}">
+                    </mat-form-field>
+                </div>
+            </div>
+        </mat-card-content>
+    </form>
+    
+</div>
+
+<div *ngIf="data.type==='create'">
+    <form [formGroup]="userGroup" class="form-container">
+        <mat-card-header>
+            <mat-card-title>User Information</mat-card-title>
+        </mat-card-header>
+        <hr>
+        <mat-card-content>
+            <div class="row">
+                <mat-form-field>
+                    <input formControlName="names" matInput placeholder="Names">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field>
+                        <input formControlName="username" matInput placeholder="User name">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field>
+                        <input formControlName="password" matInput placeholder="Password">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="fill">
+                <mat-label>Branch</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let branch of branches" [value]="branch.id">
+                    {{branch.name}}
+                    </mat-option>
+                </mat-select>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="createUser()" [mat-dialog-close]="data.reload">Create</button>
+        </mat-card-actions>
+    </form>
+</div>
+
+<div *ngIf="data.type==='delete'">
+    <mat-card-title>Are you sure?</mat-card-title>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="save()">Delete</button>
+    </mat-card-actions>
+</div>

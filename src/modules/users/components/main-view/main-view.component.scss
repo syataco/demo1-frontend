@@ -1,0 +1,68 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  // .example-is-mobile .example-toolbar {
+  //   position: fixed;
+  //   /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+  //   z-index: 2;
+  // }
+  
+  h1.example-app-name {
+    margin-left: 15px;
+  }
+  
+  .example-sidenav-container {
+    /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+       causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+    flex: 1;
+  }
+  
+  // .example-is-mobile .example-sidenav-container {
+  //   /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+  //      `<body>` to be our scrolling element for mobile layouts. */
+  //   flex: 1 0 auto;
+  // }
+  
+  #sidenavcollapsable.menu-collapse {
+    width: 70px !important;
+    transition: width 0.4s;
+  }
+  
+  #sidenavcollapsable.menu-open {
+    width: 200px !important;
+    transition: width 0.4s;
+  }
+  
+  #sidenav-content.content-expand {
+    margin-left: 70px !important;
+    transition: margin 0.4s;
+  }
+  
+  #sidenav-content.content-contract {
+    margin-left: 200px !important;
+    transition: margin 0.4s;
+  }
+  
+  .list-item {
+    height: 40px;
+  }
+  
+  span.item-name {
+    margin-left: 15px;
+  }
+  // .item-selected {
+  //   // border-left: 5px solid black;
+  //   ::ng-deep .mat-list-item-content {
+  //     border-left: 5px solid black;
+  //   }
+  // }
+  div.body-content {
+    padding: 20px;
+  }
